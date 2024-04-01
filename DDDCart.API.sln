@@ -3,12 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDCart.API", "DDDCart.API.csproj", "{5CB53B2C-C613-48B1-984B-8F2022AC921C}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{84289DF9-1DA9-4432-8435-7EB892B15CC7}"
 	ProjectSection(SolutionItems) = preProject
 		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
 	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDCart.API", "DDDCart.API.csproj", "{687CF078-9342-46DD-9822-1D4D7A26C18F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,10 +16,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{687CF078-9342-46DD-9822-1D4D7A26C18F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{687CF078-9342-46DD-9822-1D4D7A26C18F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{687CF078-9342-46DD-9822-1D4D7A26C18F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{687CF078-9342-46DD-9822-1D4D7A26C18F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CB53B2C-C613-48B1-984B-8F2022AC921C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CB53B2C-C613-48B1-984B-8F2022AC921C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CB53B2C-C613-48B1-984B-8F2022AC921C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CB53B2C-C613-48B1-984B-8F2022AC921C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
