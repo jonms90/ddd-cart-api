@@ -17,6 +17,7 @@ namespace DDDCart.API.Controllers
         [HttpGet(Name = "GetCart")]
         public async Task<CartResponse> Get()
         {
+            _logger.LogDebug("Retrieving Cart");
             return await Task.FromResult(new CartResponse());
         }
     }
