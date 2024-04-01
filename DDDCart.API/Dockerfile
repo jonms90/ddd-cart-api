@@ -9,23 +9,26 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["DDDCart.API.csproj", "."]
-RUN dotnet restore "./DDDCart.API.csproj"
-COPY . .
+
+COPY ["DDDCart.API/DDDCart.API.csproj", "./DDDCart.API/"]
+COPY ["DDDCart.Domain/DDDCart.Domain.csproj", "./DDDCart.Domain/"]
+COPY ["DDDCart.Infrastructure/DDDCart.Infrastructure.csproj", "./DDDCart.Infrastructure/"]
+RUN dotnet restore "DDDCart.API/DDDCart.API.csproj"
+
+COPY DDDCart.API/ DDDCart.API/
+COPY DDDCart.Domain/ DDDCart.Domain/
+COPY DDDCart.Infrastructure/ DDDCart.Infrastructure/
 WORKDIR "/src/."
-RUN dotnet build "./DDDCart.API.csproj" -c "$BUILD_CONFIGURATION" -o /app/build
+RUN dotnet build "./DDDCart.API/DDDCart.API.csproj" -c "$BUILD_CONFIGURATION" -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./DDDCart.API.csproj" -c "$BUILD_CONFIGURATION" -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./DDDCart.API/DDDCart.API.csproj" -c "$BUILD_CONFIGURATION" -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-RUN addgroup -S nonroot \
-	&& adduser -S nonroot -G nonroot
-
 USER nonroot
 
-ENTRYPOINT ["dotnet", "DDDCart.API.dll"]
+ENTRYPOINT ["dotnet", "DDDCart.API/DDDCart.API.dll"]
