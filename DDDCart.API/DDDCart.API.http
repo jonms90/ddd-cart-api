@@ -1,0 +1,6 @@
+@DDDCart.API_HostAddress = https://localhost:49155
+
+GET {{DDDCart.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
