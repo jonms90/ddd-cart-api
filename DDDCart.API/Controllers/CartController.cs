@@ -20,7 +20,6 @@ namespace DDDCart.API.Controllers
         public async Task<CartResponse> Get()
         {
             _logger.LogDebug("Retrieving Cart");
-            var id = ""; 
             return await Task.FromResult(new CartResponse());
         }
     }

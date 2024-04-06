@@ -10,6 +10,8 @@ namespace DDDCart.API.Controllers
     [ApiController]
     public class IdentityController : ControllerBase
     {
+        private const string MissingKey = "Missing JwtSettings:Key in configuration";
+
         private readonly IConfiguration _config;
 
         public IdentityController(IConfiguration configuration)
@@ -35,7 +37,8 @@ namespace DDDCart.API.Controllers
                 Issuer = _config["JwtSettings:Issuer"],
                 Audience = _config["JwtSettings:Audience"],
                 SigningCredentials = new SigningCredentials(
-                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JwtSettings:Key"] ?? throw new ArgumentException())),
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JwtSettings:Key"] ?? 
+                        throw new ArgumentException(MissingKey))),
                     SecurityAlgorithms.HmacSha512Signature)
             };
 
