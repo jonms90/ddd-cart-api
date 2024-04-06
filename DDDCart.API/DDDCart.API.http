@@ -1,4 +1,4 @@
-@DDDCart.API_HostAddress = https://localhost:49157
+@DDDCart.API_HostAddress = https://localhost:49153
 
 GET {{DDDCart.API_HostAddress}}/cart/
 Accept: application/json

@@ -1,8 +1,10 @@
 using DDDCart.API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DDDCart.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class CartController : ControllerBase
@@ -18,6 +20,7 @@ namespace DDDCart.API.Controllers
         public async Task<CartResponse> Get()
         {
             _logger.LogDebug("Retrieving Cart");
+            var id = ""; 
             return await Task.FromResult(new CartResponse());
         }
     }
