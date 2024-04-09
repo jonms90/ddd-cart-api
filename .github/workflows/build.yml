@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     name: Build and analyze
+    environment: test
     runs-on: windows-latest
     steps:
       - name: Set up JDK 17
@@ -45,6 +46,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          JWTSettings:Key: ${{ secrets.INTEGRATION_TEST }}
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"jonms90_ddd-cart-api" /o:"jonms90" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
