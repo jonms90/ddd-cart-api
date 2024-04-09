@@ -7,6 +7,10 @@ namespace DDDCart.API
 {
     public class Program
     {
+        private Program()
+        {
+        }
+
         private const string MissingKey = "Missing JwtSettings:Key in configuration";
 
         public static void Main(string[] args)
