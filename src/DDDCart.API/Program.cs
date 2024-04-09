@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace DDDCart.API
 {
-    public static class Program
+    public class Program
     {
         private const string MissingKey = "Missing JwtSettings:Key in configuration";
 
