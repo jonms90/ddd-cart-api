@@ -6,8 +6,8 @@ namespace DDDCart.API.Models
     {
         [JsonPropertyName("itemCount")]
         public int ItemCount { get; set; }
-        [JsonPropertyName("customerId")]
 
+        [JsonPropertyName("customerId")]
         public string? CustomerId { get; set; }
     }
 }

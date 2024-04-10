@@ -1,6 +1,9 @@
 
 using System.Text;
+using DDDCart.Domain;
+using DDDCart.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace DDDCart.API
@@ -45,6 +48,9 @@ namespace DDDCart.API
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<ICartRepository, CartRepository>();
+            builder.Services.AddDbContext<CartContext>(options => options.UseInMemoryDatabase("Test"));
 
             var app = builder.Build();
 
