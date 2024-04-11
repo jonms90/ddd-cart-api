@@ -1,4 +1,4 @@
-﻿namespace DDDCart.Domain
+﻿namespace DDDCart.Domain.Carts
 {
     public class CartId(Guid aCartId) : IEquatable<CartId>
     {
@@ -16,12 +16,12 @@
                 return true;
             }
 
-            if (obj.GetType() != this.GetType())
+            if (obj.GetType() != GetType())
             {
                 return false;
             }
 
-            return Equals((CartId) obj);
+            return Equals((CartId)obj);
         }
 
         public bool Equals(CartId? other)
